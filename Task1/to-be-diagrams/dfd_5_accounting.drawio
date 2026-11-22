@@ -1,0 +1,64 @@
+<mxfile host="65bd71144e">
+    <diagram name="Страница-1" id="nQr9Kr7QdgpjDxoU3_Le">
+        <mxGraphModel dx="786" dy="895" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="t" parent="1" style="text;html=1;fontSize=18;fontStyle=1;align=left;" value="DFD-5. Бухгалтерский учёт и процессинг (To-Be, с мерами)" vertex="1">
+                    <mxGeometry height="40" width="540" x="40" y="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_acc" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="Бухгалтер" vertex="1">
+                    <mxGeometry height="70" width="160" x="20" y="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_tax" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="Налоговые органы" vertex="1">
+                    <mxGeometry height="70" width="160" x="20" y="410" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" value="P5. Бухгалтерский учёт&#xa;[RBAC: бухгалтерия, аудит]" vertex="1">
+                    <mxGeometry height="90" width="200" x="200" y="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="d7" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="D7. 1С:Бухгалтерия&#xa;[TDE, клиент-сервер]" vertex="1">
+                    <mxGeometry height="90" width="240" x="520" y="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="d9" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="D9. 1С:Торговля и склад&#xa;[TDE, клиент-сервер]" vertex="1">
+                    <mxGeometry height="90" width="240" x="520" y="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="d10" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="D10. Документы&#xa;[шифрование, ЭЦП, DLP]" vertex="1">
+                    <mxGeometry height="90" width="240" x="520" y="410" as="geometry"/>
+                </mxCell>
+                <mxCell id="f1" edge="1" parent="1" source="e_acc" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;" target="p5" value="учёт [RBAC, аудит]">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="f2" edge="1" parent="1" source="p5" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;" target="d7" value="C/R/W [TDE, аудит]">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="430" y="335"/>
+                            <mxPoint x="430" y="175"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="f3" edge="1" parent="1" source="d7" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#2e7d32;strokeWidth=2;" target="d9" value="защищённый обмен&#xa;[шифр-канал, сервисная учётка, аудит]">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="f4" edge="1" parent="1" source="p5" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;" target="d10" value="C [шифрование, DLP]">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="430" y="335"/>
+                            <mxPoint x="430" y="455"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="f5" edge="1" parent="1" source="d10" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#2e7d32;strokeWidth=2;" target="e_tax" value="отчётность [ЭЦП, TLS, DLP]">
+                    <mxGeometry relative="1" x="-0.0423" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="430" y="470"/>
+                            <mxPoint x="430" y="470"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="n" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=top;spacingLeft=6;fontSize=11;size=0;" value="Меры: клиент-серверный режим 1С, TDE, шифрованный обмен 1С↔1С, сервисная учётка, ЭЦП и DLP при отправке в налоговую, RBAC, аудит." vertex="1">
+                    <mxGeometry height="50" width="610" x="40" y="540" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
