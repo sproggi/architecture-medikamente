@@ -1,0 +1,263 @@
+<mxfile host="65bd71144e">
+    <diagram name="Analytics layer" id="anl1">
+        <mxGraphModel dx="872" dy="992" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1000" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="t" parent="1" style="text;html=1;fontSize=18;fontStyle=1;align=left;" value="Аналитический слой (lakehouse) — Privacy by Design. Источник → обезличивание на границе → зоны raw/curated → BI/ML/LLM" vertex="1">
+                    <mxGeometry height="40" width="1200" x="30" y="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="u_an" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="Аналитик" vertex="1">
+                    <mxGeometry height="60" width="150" x="1260" y="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="u_ds" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="Data Scientist" vertex="1">
+                    <mxGeometry height="60" width="150" x="1440" y="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="u_mgr" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="Руководство" vertex="1">
+                    <mxGeometry height="60" width="150" x="1090" y="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="g_src" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=13;fillColor=none;strokeColor=#666666;strokeWidth=2;spacingTop=4;" value="Источники (OLTP / внешние)" vertex="1">
+                    <mxGeometry height="390" width="270" x="30" y="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="src_pg" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="PostgreSQL&#xa;(портал, CRM, медкарты, записи)" vertex="1">
+                    <mxGeometry height="60" width="230" x="50" y="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="src_1c" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="1С:Бухгалтерия / Торговля&#xa;(через адаптер)" vertex="1">
+                    <mxGeometry height="60" width="230" x="50" y="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="src_lab" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Лаборатория (API,&#xa;push, x-data-classification)" vertex="1">
+                    <mxGeometry height="60" width="230" x="50" y="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="src_s3" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Сканы медкарт/договоров&#xa;(MinIO)" vertex="1">
+                    <mxGeometry height="60" width="230" x="50" y="370" as="geometry"/>
+                </mxCell>
+                <mxCell id="g_ing" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=13;fillColor=none;strokeColor=#666666;strokeWidth=2;spacingTop=4;" value="Ingestion" vertex="1">
+                    <mxGeometry height="330" width="240" x="340" y="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="ing_cdc" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="Debezium (CDC)" vertex="1">
+                    <mxGeometry height="60" width="200" x="360" y="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="ing_ab" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="Airbyte (выгрузки, файлы,&#xa;legacy Excel — разовая миграция)" vertex="1">
+                    <mxGeometry height="60" width="200" x="360" y="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="ing_api" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="API push (лаборатория)" vertex="1">
+                    <mxGeometry height="60" width="200" x="360" y="370" as="geometry"/>
+                </mxCell>
+                <mxCell id="kf" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="Kafka&#xa;(стримы событий)" vertex="1">
+                    <mxGeometry height="60" width="170" x="620" y="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="g_dean" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=13;fillColor=none;strokeColor=#d79b00;strokeWidth=2;spacingTop=4;" value="Граница доверия: обезличивание (Privacy by Design)" vertex="1">
+                    <mxGeometry height="240" width="350" x="830" y="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="dn_tok" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Токенизация / псевдонимизация&#xa;(patient_id; ключи в Vault, [НОВЫЙ] сервис)" vertex="1">
+                    <mxGeometry height="55" width="290" x="860" y="205" as="geometry"/>
+                </mxCell>
+                <mxCell id="dn_strip" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Удаление прямых идентификаторов&#xa;(ФИО, телефон, email, точный ДР)" vertex="1">
+                    <mxGeometry height="55" width="290" x="860" y="278" as="geometry"/>
+                </mxCell>
+                <mxCell id="dn_qa" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Контроль качества (Great Expectations)&#xa;+ lineage-метки (DataHub)" vertex="1">
+                    <mxGeometry height="55" width="290" x="860" y="350" as="geometry"/>
+                </mxCell>
+                <mxCell id="g_raw" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=13;fillColor=none;strokeColor=#cc0000;strokeWidth=2;spacingTop=4;" value="RAW-зона (сегрегирована)" vertex="1">
+                    <mxGeometry height="150" width="330" x="840" y="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="z_raw" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#f5f5f5;strokeColor=#cc0000;fontSize=11;" value="MinIO Object Lock (WORM) + KMS&#xa;Оригиналы (в т.ч. PII). Доступ: ТОЛЬКО ETL-сервис,&#xa;аналитикам недоступна. Удаление = crypto-shredding" vertex="1">
+                    <mxGeometry height="90" width="290" x="860" y="475" as="geometry"/>
+                </mxCell>
+                <mxCell id="g_cur" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=13;fillColor=none;strokeColor=#82b366;strokeWidth=2;spacingTop=4;" value="CURATED / аналитическая зона (только обезличенное)" vertex="1">
+                    <mxGeometry height="150" width="380" x="1210" y="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="z_ch" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#f5f5f5;strokeColor=#82b366;fontSize=11;" value="ClickHouse (OLAP): псевдонимы, агрегаты,&#xa;теги class/retention; query log → SIEM" vertex="1">
+                    <mxGeometry height="90" width="340" x="1230" y="475" as="geometry"/>
+                </mxCell>
+                <mxCell id="g_srv" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=13;fillColor=none;strokeColor=#666666;strokeWidth=2;spacingTop=4;" value="Serving (доступ по ролям, DLP на выгрузки)" vertex="1">
+                    <mxGeometry height="220" width="390" x="1210" y="630" as="geometry"/>
+                </mxCell>
+                <mxCell id="sv_bi" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="Superset (BI):&#xa;RBAC, RLS, маскирование" vertex="1">
+                    <mxGeometry height="60" width="170" x="1230" y="670" as="geometry"/>
+                </mxCell>
+                <mxCell id="sv_ml" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="JupyterHub + MLflow:&#xa;обучение ТОЛЬКО на curated" vertex="1">
+                    <mxGeometry height="60" width="170" x="1420" y="670" as="geometry"/>
+                </mxCell>
+                <mxCell id="sv_llm" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="LLM-gateway: DLP на вход/выход,&#xa;без данных с тегами pii/health" vertex="1">
+                    <mxGeometry height="60" width="340" x="1230" y="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="g_gov" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=13;fillColor=none;strokeColor=#d79b00;strokeWidth=2;spacingTop=4;" value="Гигиена данных и контроль (cross-cutting)" vertex="1">
+                    <mxGeometry height="250" width="330" x="840" y="630" as="geometry"/>
+                </mxCell>
+                <mxCell id="gv_hub" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="DataHub: каталог, теги,&#xa;Data Lineage [НОВЫЙ]" vertex="1">
+                    <mxGeometry height="55" width="290" x="860" y="665" as="geometry"/>
+                </mxCell>
+                <mxCell id="gv_au" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Аудит: query log ClickHouse/Superset&#xa;→ SIEM, UEBA на объёмы выборки [НОВЫЙ]" vertex="1">
+                    <mxGeometry height="55" width="290" x="860" y="730" as="geometry"/>
+                </mxCell>
+                <mxCell id="gv_ret" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Retention по зонам + crypto-shredding&#xa;(raw — 5 лет; агрегаты — бессрочно) [НОВЫЙ]" vertex="1">
+                    <mxGeometry height="55" width="290" x="860" y="795" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" edge="1" parent="1" source="src_pg" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#2e7d32;strokeWidth=2;" target="ing_cdc" value="CDC (real-time)">
+                    <mxGeometry relative="1" y="10" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e2" edge="1" parent="1" source="src_1c" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#2e7d32;strokeWidth=2;" target="ing_ab" value="выгрузки (адаптер)">
+                    <mxGeometry relative="1" y="10" as="geometry">
+                        <mxPoint as="offset"/>
+                        <Array as="points">
+                            <mxPoint x="320" y="310"/>
+                            <mxPoint x="320" y="310"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e3" edge="1" parent="1" source="src_lab" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#2e7d32;strokeWidth=2;" target="ing_api" value="push">
+                    <mxGeometry relative="1" x="-0.1818" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e4" edge="1" parent="1" source="src_s3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#2e7d32;strokeWidth=2;" target="ing_ab" value="S3-sync">
+                    <mxGeometry relative="1" x="0.0667" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="320" y="400"/>
+                            <mxPoint x="320" y="330"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e5" edge="1" parent="1" source="ing_cdc" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;" target="kf" value="изменения">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e6" edge="1" parent="1" source="ing_ab" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;" target="kf" value="батчи">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="700" y="320"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e7" edge="1" parent="1" source="ing_api" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;" target="kf" value="события">
+                    <mxGeometry relative="1" x="-0.4074" as="geometry">
+                        <mxPoint as="offset"/>
+                        <Array as="points">
+                            <mxPoint x="720" y="400"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e8" edge="1" parent="1" source="kf" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#d79b00;strokeWidth=2;" target="dn_tok" value="стрим → граница доверия">
+                    <mxGeometry relative="1" x="0.0805" as="geometry">
+                        <mxPoint as="offset"/>
+                        <Array as="points">
+                            <mxPoint x="705" y="150"/>
+                            <mxPoint x="1005" y="150"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e9" edge="1" parent="1" source="dn_tok" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;" target="dn_strip">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e10" edge="1" parent="1" source="dn_strip" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;" target="dn_qa">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e11" edge="1" parent="1" source="dn_qa" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#cc0000;strokeWidth=2;" target="z_raw" value="оригиналы (только raw, WORM+KMS)">
+                    <mxGeometry relative="1" x="-0.0722" as="geometry">
+                        <mxPoint as="offset"/>
+                        <Array as="points">
+                            <mxPoint x="800" y="377.5"/>
+                            <mxPoint x="800" y="500"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e12" edge="1" parent="1" source="dn_qa" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#82b366;strokeWidth=2;" target="z_ch" value="обезличенное (без ключей)">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1400" y="370"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e13" edge="1" parent="1" source="z_ch" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#2e7d32;strokeWidth=2;" target="sv_bi" value="отчёты">
+                    <mxGeometry relative="1" x="0.1515" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1400" y="617.5"/>
+                            <mxPoint x="1340" y="617.5"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e14" edge="1" parent="1" source="z_ch" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#2e7d32;strokeWidth=2;" target="sv_ml" value="датасеты для обучения">
+                    <mxGeometry relative="1" x="-0.0238" as="geometry">
+                        <mxPoint as="offset"/>
+                        <Array as="points">
+                            <mxPoint x="1460" y="617.5"/>
+                            <mxPoint x="1505" y="617.5"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e15" edge="1" parent="1" source="sv_ml" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;" target="sv_llm" value="модели/ответы">
+                    <mxGeometry relative="1" x="0.3061" as="geometry">
+                        <mxPoint as="offset"/>
+                        <Array as="points">
+                            <mxPoint x="1620" y="700"/>
+                            <mxPoint x="1620" y="870"/>
+                            <mxPoint x="1400" y="870"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e16" edge="1" parent="1" source="u_an" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#2e7d32;strokeWidth=2;" target="sv_bi" value="BI-отчёты (RBAC)">
+                    <mxGeometry relative="1" x="-0.669" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1335" y="290"/>
+                            <mxPoint x="1200" y="290"/>
+                            <mxPoint x="1200" y="690"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e17" edge="1" parent="1" source="u_ds" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#2e7d32;strokeWidth=2;" target="sv_ml" value="эксперименты (только curated)">
+                    <mxGeometry relative="1" x="-0.5971" y="-50" as="geometry">
+                        <mxPoint as="offset"/>
+                        <Array as="points">
+                            <mxPoint x="1520" y="420"/>
+                            <mxPoint x="1620" y="420"/>
+                            <mxPoint x="1620" y="690"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e18" edge="1" parent="1" source="u_mgr" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#2e7d32;strokeWidth=2;" target="sv_bi" value="P&amp;L, KPI (агрегаты)">
+                    <mxGeometry relative="1" x="-0.5692" y="20" as="geometry">
+                        <mxPoint as="offset"/>
+                        <Array as="points">
+                            <mxPoint x="1160" y="160"/>
+                            <mxPoint x="1190" y="160"/>
+                            <mxPoint x="1190" y="710"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e19" edge="1" parent="1" source="dn_qa" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;dashed=1;" target="gv_hub" value="lineage, теги">
+                    <mxGeometry relative="1" x="0.3467" y="-30" as="geometry">
+                        <mxPoint as="offset"/>
+                        <Array as="points">
+                            <mxPoint x="1180" y="377.5"/>
+                            <mxPoint x="1180" y="692.5"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e20" edge="1" parent="1" source="z_ch" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;dashed=1;" target="gv_au" value="query log">
+                    <mxGeometry relative="1" x="-0.2418" as="geometry">
+                        <mxPoint as="offset"/>
+                        <Array as="points">
+                            <mxPoint x="1340" y="610"/>
+                            <mxPoint x="1190" y="610"/>
+                            <mxPoint x="1190" y="757.5"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e21" edge="1" parent="1" source="gv_ret" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;dashed=1;" target="z_raw" value="удаление/crypto-shredding">
+                    <mxGeometry relative="1" x="0.3699" y="-10" as="geometry">
+                        <mxPoint as="offset"/>
+                        <Array as="points">
+                            <mxPoint x="800" y="822.5"/>
+                            <mxPoint x="800" y="520"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="n" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;align=left;verticalAlign=top;spacingLeft=6;fontSize=11;size=0;" value="P2D-механизмы слоя: (1) обезличивание на границе доверия — PII не покидает raw-зону; (2) минимизация — селекция полей в маппинге ETL; (3) privacy by default — без тегов датасет не публикуется, обучение ML/LLM только на curated; (4) lineage — прослеживаемость каждого индикатора; (5) DLP на выгрузках и LLM; (6) аудит запросов + UEBA; (7) retention и crypto-shredding; (8) контроль качества данных." vertex="1">
+                    <mxGeometry height="72.5" width="760" x="40" y="900" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
